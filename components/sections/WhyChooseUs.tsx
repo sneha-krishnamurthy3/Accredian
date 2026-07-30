@@ -1,110 +1,102 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2 } from "lucide-react";
-import { STATS } from "@/lib/constants";
+import { TARGET_AUDIENCES } from "@/lib/constants";
+
+// SVG icons matching the reference screenshot exactly
+const AUDIENCE_ICONS: Record<string, React.FC<{ className?: string }>> = {
+  // Monitor with checkmark
+  "Tech Professionals": ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <path strokeLinecap="round" d="M8 21h8M12 17v4" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 10l3 3 5-5" />
+    </svg>
+  ),
+  // Monitor with X
+  "Non-Tech Professionals": ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <path strokeLinecap="round" d="M8 21h8M12 17v4" />
+      <path strokeLinecap="round" d="M9 8l6 6M15 8l-6 6" />
+    </svg>
+  ),
+  // Graduation cap
+  "Emerging Professionals": ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3L2 9l10 6 10-6-10-6z" />
+      <path strokeLinecap="round" d="M6 12v5c0 0 2.5 3 6 3s6-3 6-3v-5" />
+      <line x1="22" y1="9" x2="22" y2="15" strokeLinecap="round" />
+    </svg>
+  ),
+  // Briefcase / bag
+  "Senior Professionals": ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path strokeLinecap="round" d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+      <line x1="2" y1="14" x2="22" y2="14" strokeLinecap="round" />
+      <line x1="12" y1="11" x2="12" y2="17" strokeLinecap="round" />
+    </svg>
+  ),
+};
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-slate-50/50 scroll-mt-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Content & Stats Column */}
-          <div className="lg:col-span-6 space-y-6">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 border border-indigo-100/50">
-              Why Accredian
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
-              Designed to eliminate verification overhead and certificate fraud
-            </h2>
-            <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-              Traditional credential verification is broken—relying on manual email checks, physical calls, and slow document mailings. Accredian simplifies everything by introducing instant digital verification.
+    <section
+      id="who-should-join"
+      className="w-full mt-12 sm:mt-28 xl:mx-12 mx-4 bg-[#1a6fe0] rounded-2xl overflow-hidden shadow-xl select-none"
+    >
+      <div className="flex flex-col md:flex-row">
+        {/* Left Pane - Title & Illustration */}
+        <div className="md:w-[42%] pt-10 pb-0 md:pb-0 px-8 md:pl-12 text-white flex flex-col justify-between items-start gap-6">
+          <div className="space-y-2 mt-4">
+            <p className="text-xs sm:text-sm font-semibold text-blue-100 tracking-wide">
+              Who Should Join?
             </p>
-
-            {/* Bullet benefits */}
-            <ul className="space-y-3.5">
-              {[
-                "100% tamper-proof cryptographically signed credentials.",
-                "Zero manual support tickets for admissions and registrar offices.",
-                "Global verification portal accessible anywhere, anytime.",
-                "Secure data compliance conforming to SOC2 and GDPR requirements.",
-              ].map((benefit, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5.5 h-5.5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm md:text-base text-slate-700 font-medium">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Quick Metrics Grid */}
-            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-200/60">
-              {STATS.slice(0, 2).map((stat) => (
-                <div key={stat.id} className="space-y-1">
-                  <p className="text-3xl md:text-4xl font-extrabold text-indigo-600">{stat.value}</p>
-                  <p className="text-sm font-semibold text-slate-900">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-3xl md:text-4xl leading-tight font-extrabold text-white font-circular">
+              Strategic Skill<br />Enhancement
+            </h2>
           </div>
 
-          {/* Premium UI Mockup Column */}
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[480px] bg-slate-900 rounded-3xl p-6 shadow-2xl border border-slate-800 overflow-hidden">
-              {/* Decorative accent */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-indigo-500/10 rounded-full blur-2xl" />
-
-              {/* Window Controls */}
-              <div className="flex items-center gap-1.5 mb-6">
-                <div className="w-3 h-3 rounded-full bg-rose-500" />
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="text-[10px] font-mono text-slate-500 ml-2">Verification Dashboard</span>
-              </div>
-
-              {/* Main Panel Content */}
-              <div className="space-y-5 text-left">
-                {/* Key Status Panel */}
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-800/80 space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs font-semibold text-slate-400">Decentralized Key Identifier</span>
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-[10px] text-emerald-400 font-bold border border-emerald-500/20">ACTIVE</span>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-mono text-indigo-400 font-bold">did:accredian:keys#z6MkgT2hZ8...</p>
-                    <p className="text-xs text-slate-455 text-slate-400">Standard Ed25519 Cryptographic Verification Key</p>
-                  </div>
-                </div>
-
-                {/* Key Details & Specs */}
-                <div className="space-y-3 pt-1">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                    Key Configuration Specs
-                  </span>
-                  
-                  {[
-                    { label: "W3C Cryptographic Standard", desc: "Complies with Verifiable Credentials Data Model v2.0", check: true },
-                    { label: "Hardware Security Modules", desc: "Signed with FIPS 140-2 Level 3 HSM keys", check: true },
-                    { label: "Admissions Registrar Auth", desc: "Keys automatically rotated every 180 days", check: true }
-                  ].map((spec, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3.5 rounded-xl bg-slate-800/30 border border-slate-800/60 flex items-start gap-3 text-xs"
-                    >
-                      <div className="w-5 h-5 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 flex-shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-white">{spec.label}</p>
-                        <p className="text-[10px] text-slate-400 mt-0.5">{spec.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          {/* Illustration image at bottom of left pane */}
+          <div className="w-[280px] hidden md:block self-end mt-auto">
+            <img
+              src="https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/imagehuman.png"
+              alt="Professionals Illustration"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
           </div>
+        </div>
 
+        {/* Right Pane - 2x2 Grid of audience items */}
+        <div className="md:w-[58%] grid grid-cols-1 sm:grid-cols-2 py-10 px-8 md:px-10 gap-x-10 gap-y-8 text-white">
+          {TARGET_AUDIENCES.map((audience, idx) => {
+            const Icon = AUDIENCE_ICONS[audience.title];
+            return (
+              <div key={idx} className="flex flex-col gap-3">
+                {/* Icon box with border */}
+                <div className="w-12 h-12 flex items-center justify-center border-2 border-white/50 rounded-md text-white">
+                  {Icon ? (
+                    <Icon className="w-6 h-6" />
+                  ) : (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <circle cx="12" cy="12" r="9" />
+                    </svg>
+                  )}
+                </div>
+                {/* Title & Description */}
+                <div>
+                  <h3 className="text-base font-bold text-white font-circular">
+                    {audience.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-blue-100/90 font-medium leading-relaxed font-sans mt-1">
+                    {audience.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full space-y-2 text-left">
         <label
           htmlFor={id}
-          className="text-[10px] font-bold uppercase tracking-widest text-slate-500 transition-colors focus-within:text-indigo-600"
+          className="text-[10px] font-bold uppercase tracking-widest text-slate-500 transition-colors focus-within:text-blue-600"
         >
           {label}
         </label>
@@ -26,8 +26,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           aria-invalid={error ? "true" : "false"}
           aria-describedby={errorId}
           className={cn(
-            "w-full px-4 py-3.5 rounded-xl border border-slate-200/80 bg-white/50 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-500/5 transition-all text-sm md:text-base shadow-[0_1px_2px_rgba(0,0,0,0.01)]",
-            error && "border-red-500/80 focus:border-red-500 focus:ring-red-500/5",
+            "w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/10 transition-all text-sm md:text-base shadow-sm",
+            error && "border-red-500 focus:border-red-500 focus:ring-red-500/10",
             className
           )}
           {...props}
@@ -60,7 +60,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       <div className="w-full space-y-2 text-left">
         <label
           htmlFor={id}
-          className="text-[10px] font-bold uppercase tracking-widest text-slate-500 transition-colors focus-within:text-indigo-600"
+          className="text-[10px] font-bold uppercase tracking-widest text-slate-500 transition-colors focus-within:text-blue-600"
         >
           {label}
         </label>
@@ -71,8 +71,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-invalid={error ? "true" : "false"}
           aria-describedby={errorId}
           className={cn(
-            "w-full px-4 py-3.5 rounded-xl border border-slate-200/80 bg-white/50 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-500/5 transition-all text-sm md:text-base shadow-[0_1px_2px_rgba(0,0,0,0.01)] resize-none",
-            error && "border-red-500/80 focus:border-red-500 focus:ring-red-500/5",
+            "w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/10 transition-all text-sm md:text-base shadow-sm resize-none",
+            error && "border-red-500 focus:border-red-500 focus:ring-red-500/10",
             className
           )}
           {...props}

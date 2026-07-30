@@ -19,11 +19,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         whileTap={!disabled && !isLoading ? { scale: 0.98 } : {}}
         disabled={disabled || isLoading}
         className={cn(
-          "inline-flex items-center justify-center font-medium rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+          "inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
           // Variants
-          variant === "primary" && "bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-500/10 hover:shadow-lg hover:shadow-indigo-500/20 border border-transparent",
+          variant === "primary" && "bg-blue-600 hover:bg-blue-700 text-white shadow-sm border border-transparent",
           variant === "secondary" && "bg-slate-900 text-white hover:bg-slate-800 shadow-sm border border-transparent",
-          variant === "outline" && "border border-slate-200 bg-white/50 text-slate-700 hover:bg-slate-50 hover:border-slate-300",
+          variant === "outline" && "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300",
           variant === "ghost" && "text-slate-600 hover:text-slate-900 hover:bg-slate-100/50",
           // Sizes
           size === "sm" && "px-4 py-2 text-sm",

@@ -2,12 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { NAV_LINKS, BRAND_NAME } from "@/lib/constants";
-import Button from "@/components/ui/Button";
+import { Menu, X } from "lucide-react";
+import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onEnquireClick: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onEnquireClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -23,7 +26,7 @@ export const Navbar: React.FC = () => {
     // IntersectionObserver logic
     const observerOptions = {
       root: null,
-      rootMargin: "-120px 0px -60% 0px", // Sweet spot targeting active sections below the header
+      rootMargin: "-120px 0px -50% 0px", // Targeting active sections
       threshold: 0,
     };
 
@@ -51,12 +54,21 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  // Close mobile menu on click/scroll
+  // Close mobile menu on click/scroll and scroll smoothly to target
   const handleLinkClick = (href: string) => {
     setIsOpen(false);
     const element = document.getElementById(href.substring(1));
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const offset = 80; // Offset for fixed navbar
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -64,33 +76,37 @@ export const Navbar: React.FC = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           scrolled
-            ? "py-3 bg-white/75 backdrop-blur-md border-b border-slate-100 shadow-sm"
-            : "py-5 bg-transparent"
+            ? "py-3 bg-white border-b border-slate-200 shadow-sm"
+            : "py-4 bg-white border-b border-slate-100"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[85rem] mx-auto px-6 sm:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo Wrapper */}
             <a
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
                 handleLinkClick("#home");
               }}
-              className="flex items-center gap-2 group focus:outline-none"
+              className="flex items-center gap-2 focus:outline-none select-none"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-indigo-500/10">
-                A
-              </div>
-              <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
-                {BRAND_NAME}
-              </span>
+              <img
+                src="https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/logo.webp"
+                alt="Accredian"
+                className="hidden sm:block h-8 w-auto object-contain"
+              />
+              <img
+                src="https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/logo/accredainnew.webp"
+                alt="Accredian"
+                className="block sm:hidden h-8 w-auto object-contain"
+              />
             </a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1">
+            {/* Desktop Navigation Link Toggles */}
+            <nav className="hidden xl:flex items-center gap-1">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
@@ -102,9 +118,9 @@ export const Navbar: React.FC = () => {
                       handleLinkClick(link.href);
                     }}
                     className={cn(
-                      "px-4 py-2 text-sm font-medium rounded-lg transition-colors relative cursor-pointer",
+                      "px-3.5 py-2 text-sm font-medium transition-all relative cursor-pointer font-sans select-none",
                       isActive
-                        ? "text-indigo-600 font-semibold"
+                        ? "text-universal font-bold"
                         : "text-slate-600 hover:text-slate-900"
                     )}
                   >
@@ -112,7 +128,7 @@ export const Navbar: React.FC = () => {
                     {isActive && (
                       <motion.span
                         layoutId="activeIndicator"
-                        className="absolute bottom-0 left-4 right-4 h-0.5 bg-indigo-600 rounded-full"
+                        className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-universal rounded-full"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -121,30 +137,12 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleLinkClick("#contact")}
-              >
-                Sign In
-              </Button>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => handleLinkClick("#contact")}
-                className="gap-1.5"
-              >
-                Get Started
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
+            {/* Desktop CTA buttons removed */}
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Navigation Toggle Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-100 cursor-pointer"
+              className="xl:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors focus:outline-none cursor-pointer"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >
@@ -154,7 +152,7 @@ export const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -162,7 +160,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-40 md:hidden border-b border-slate-100 bg-white/95 backdrop-blur-lg shadow-xl"
+            className="fixed inset-x-0 top-[68px] z-30 xl:hidden border-b border-slate-200 bg-white shadow-xl max-h-[calc(100vh-68px)] overflow-y-auto"
           >
             <nav className="flex flex-col p-6 space-y-4">
               {NAV_LINKS.map((link) => {
@@ -176,9 +174,9 @@ export const Navbar: React.FC = () => {
                       handleLinkClick(link.href);
                     }}
                     className={cn(
-                      "py-2 text-base font-semibold transition-colors border-l-2 pl-4",
+                      "py-2 text-base font-semibold transition-colors border-l-2 pl-4 select-none",
                       isActive
-                        ? "border-indigo-600 text-indigo-600"
+                        ? "border-universal text-universal"
                         : "border-transparent text-slate-600 hover:text-slate-900"
                     )}
                   >
@@ -187,25 +185,7 @@ export const Navbar: React.FC = () => {
                 );
               })}
               <hr className="border-slate-100" />
-              <div className="flex flex-col gap-3 pt-2">
-                <Button
-                  variant="outline"
-                  size="md"
-                  onClick={() => handleLinkClick("#contact")}
-                  className="w-full"
-                >
-                  Sign In
-                </Button>
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={() => handleLinkClick("#contact")}
-                  className="w-full gap-1.5"
-                >
-                  Get Started
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
+                /* Mobile CTA buttons removed */
             </nav>
           </motion.div>
         )}

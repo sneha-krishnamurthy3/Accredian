@@ -1,178 +1,270 @@
-import { NavLink, Feature, Stat, Testimonial, PricingPlan, FaqItem } from "@/types";
+import {
+  NavLink,
+  Stat,
+  ClientLogo,
+  DomainItem,
+  CourseSegment,
+  TargetAudience,
+  HowItWorksStep,
+  FAQGroup,
+  Testimonial
+} from "@/types";
 
 export const BRAND_NAME = "Accredian";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
-  { label: "Features", href: "#features" },
-  { label: "About", href: "#about" },
+  { label: "Stats", href: "#stats" },
+  { label: "Clients", href: "#clients" },
+  { label: "Accredian Edge", href: "#accredianEdge" },
+  { label: "CAT", href: "#cat" },
+  { label: "How It Works", href: "#howItWorks" },
+  { label: "FAQs", href: "#faqs" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
-];
-
-export const TRUSTED_COMPANIES = [
-  { name: "Vercel", id: "vercel" },
-  { name: "Stripe", id: "stripe" },
-  { name: "Linear", id: "linear" },
-  { name: "Apple", id: "apple" },
-  { name: "Framer", id: "framer" },
-  { name: "Raycast", id: "raycast" }
-];
-
-export const FEATURES: Feature[] = [
-  {
-    id: "feat-1",
-    title: "Instant Verification",
-    description: "Verify credentials and academic achievements in milliseconds. Fully decentralized cryptographic verification protocols.",
-    iconName: "Zap",
-  },
-  {
-    id: "feat-2",
-    title: "Enterprise Security",
-    description: "Military-grade AES-256 encryption. GDPR and HIPAA compliant storage architectures to safeguard user credentials.",
-    iconName: "Shield",
-  },
-  {
-    id: "feat-3",
-    title: "Real-time Analytics",
-    description: "Get complete visibility into credential issuance, validation rates, and engagement through dynamic dashboards.",
-    iconName: "BarChart3",
-  },
-  {
-    id: "feat-4",
-    title: "Developer First APIs",
-    description: "Integrate credential tracking directly into your LMS or internal HR portal with our robust REST and GraphQL APIs.",
-    iconName: "Code2",
-  },
-  {
-    id: "feat-5",
-    title: "Automated Workflows",
-    description: "Trigger automated verification triggers, email alerts, and PDF certificates directly from custom webhooks.",
-    iconName: "Cpu",
-  },
-  {
-    id: "feat-6",
-    title: "Global Compliance",
-    description: "Compliant with international standards for digital credentials. Issue globally-recognized academic transcripts.",
-    iconName: "Globe",
-  },
 ];
 
 export const STATS: Stat[] = [
-  { id: "stat-1", value: "99.99%", label: "API Uptime SLA" },
-  { id: "stat-2", value: "24M+", label: "Credentials Verified" },
-  { id: "stat-3", value: "15,000+", label: "Organizations Onboarded" },
-  { id: "stat-4", value: "< 200ms", label: "Verification Latency" },
+  {
+    id: 1,
+    title: "Professionals trained for exceptional career success",
+    text: "10K+"
+  },
+  {
+    id: 2,
+    title: "Sessions delivered with unmatched learning excellence",
+    text: "200+"
+  },
+  {
+    id: 3,
+    title: "Active learners engaged in dynamic courses",
+    text: "5K+"
+  }
+];
+
+export const CLIENT_LOGOS: ClientLogo[] = [
+  {
+    id: "client-1",
+    logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/rel.png"
+  },
+  {
+    id: "client-3",
+    logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/hcl.png"
+  },
+  {
+    id: "client-4",
+    logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/ibm.png"
+  },
+  {
+    id: "client-5",
+    logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/crif.png"
+  },
+  {
+    id: "client-6",
+    logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/adp.svg"
+  },
+  {
+    id: "client-2",
+    logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/bayer.svg"
+  }
+];
+
+export const DOMAINS: DomainItem[] = [
+  {
+    title: "Product & Innovation Hub",
+    description: "Driving creativity, product excellence, and innovation strategies.",
+    iconName: "Sparkles"
+  },
+  {
+    title: "Gen-AI Mastery",
+    description: "Comprehensive training on harnessing Generative AI for business transformation.",
+    iconName: "Cpu"
+  },
+  {
+    title: "Leadership Elevation",
+    description: "Programs designed to build strong, visionary, and impactful leaders.",
+    iconName: "TrendingUp"
+  },
+  {
+    title: "Tech & Data Insights",
+    description: "Training in cutting-edge technologies, data analytics, and digital tools.",
+    iconName: "Database"
+  },
+  {
+    title: "Operations Excellence",
+    description: "Enhancing efficiency, process optimization, and operational leadership.",
+    iconName: "Settings"
+  },
+  {
+    title: "Digital Enterprise",
+    description: "Empowering professionals in a fast-paced digital business environment.",
+    iconName: "Globe"
+  },
+  {
+    title: "Fintech Innovation Lab",
+    description: "Specializing in emerging trends and technologies in the financial sector.",
+    iconName: "DollarSign"
+  }
+];
+
+export const COURSE_SEGMENTS: CourseSegment[] = [
+  {
+    title: "Program Specific",
+    description: "Certificate, Executive, Post Graduate Certificate",
+    image: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/project-management-v2.webp"
+  },
+  {
+    title: "Industry Specific",
+    description: "IT, Healthcare, Retail, Finance, Education, Manufacturing",
+    image: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/digital-transformation-v2.webp"
+  },
+  {
+    title: "Topic Specific",
+    description: "Machine Learning, Design, Analytics, Cybersecurity, Cloud",
+    image: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/data-science-v2.webp"
+  },
+  {
+    title: "Level Specific",
+    description: "Senior Leadership, Mid-Career Professionals, Freshers",
+    image: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/senior-management-v2.webp"
+  }
+];
+
+export const TARGET_AUDIENCES: TargetAudience[] = [
+  {
+    title: "Tech Professionals",
+    description: "Enhance expertise, embrace tech, drive innovation.",
+    iconName: "Code"
+  },
+  {
+    title: "Non-Tech Professionals",
+    description: "Adapt digitally, collaborate in tech environments.",
+    iconName: "Layers"
+  },
+  {
+    title: "Emerging Professionals",
+    description: "Develop powerful skills for rapid career growth.",
+    iconName: "ArrowUpRight"
+  },
+  {
+    title: "Senior Professionals",
+    description: "Strengthen leadership, enhance strategic decisions.",
+    iconName: "Award"
+  }
+];
+
+export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
+  {
+    title: "Skill Gap Analysis",
+    description: "Assess team skill gaps and developmental needs.",
+    iconName: "Search"
+  },
+  {
+    title: "Customized Training Plan",
+    description: "Create a tailored roadmap addressing organizational goals.",
+    iconName: "FileText"
+  },
+  {
+    title: "Flexible Program Delivery",
+    description: "Deliver adaptable programs aligned with industry and organizational needs.",
+    iconName: "Play"
+  }
+];
+
+export const FAQ_GROUPS: FAQGroup[] = [
+  {
+    title: "About the Course",
+    content: [
+      {
+        title: "What types of corporate training programs does Accredian offer?",
+        content: [
+          "Accredian provides industry-specific, customizable training programs tailored to meet your organization's unique needs, covering domains like leadership, tech, data, and fintech."
+        ]
+      },
+      {
+        title: "What domain specializations are available?",
+        content: [
+          "We offer expertise in various domains, including Leadership Development, Tech & Data, Fintech, Digital Business, Product Innovation, Operations Management, and Generative AI."
+        ]
+      }
+    ]
+  },
+  {
+    title: "About the Delivery",
+    content: [
+      {
+        title: "Can the courses be customized for specific industries or teams?",
+        content: [
+          "Absolutely! Our programs are fully customizable, including content, format, timing, and industry-specific focus, to align with your organization’s goals."
+        ]
+      },
+      {
+        title: "Who are the instructors for these programs?",
+        content: [
+          "Our courses are delivered by industry leaders, experienced mentors, and domain experts with real-world insights."
+        ]
+      },
+      {
+        title: "What formats are the programs delivered in?",
+        content: [
+          "Programs can be delivered in various formats, including online, offline, hybrid, and on-demand, based on your team's preferences and requirements."
+        ]
+      }
+    ]
+  },
+  {
+    title: "Miscellaneous",
+    content: [
+      {
+        title: "What is the ideal team size for corporate training?",
+        content: [
+          "Our programs are flexible and can cater to teams of any size, from small groups to large organizational cohorts."
+        ]
+      },
+      {
+        title: "How do we get started with Accredian?",
+        content: [
+          "Get started with Accredian by contacting us or requesting a quote on our website. Our team will guide you through the process—from skill gap analysis to a custom program tailored to your needs."
+        ]
+      }
+    ]
+  }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    id: "t-1",
-    name: "Sarah Jenkins",
-    role: "Head of Admissions",
-    company: "Stanford University",
-    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
-    review: "Accredian has revolutionized our academic transcripts validation. We saved thousands of admin hours and completely eliminated certificate fraud.",
-    rating: 5,
+    review: "We would like to thank Accredian for the wonderful support and the beautiful journey. The team turned our vision into reality with unparalleled dedication, service, and expertise throughout the entire process.",
+    company_logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/adp.svg",
+    name: "ADP"
   },
   {
-    id: "t-2",
-    name: "Alex Rivera",
-    role: "Director of HR Operations",
-    company: "Stripe",
-    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80",
-    review: "The API-first model allowed us to embed credential checks directly into our hiring workflows. Candidate background screening now takes seconds.",
-    rating: 5,
+    review: "Accredian's commitment to excellence is unmatched. They consistently go the extra mile to ensure our needs are met and exceeded, providing reliable support and high-quality service every step of the way.",
+    company_logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/bayer.svg",
+    name: "Bayer"
   },
   {
-    id: "t-3",
-    name: "Elena Rostova",
-    role: "VP of Product",
-    company: "EdTech Global",
-    avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80",
-    review: "Integrating Accredian's webhooks took less than an afternoon. The developer experience is unparalleled—reminds me of Vercel and Stripe.",
-    rating: 5,
-  },
+    review: "Choosing Accredian for the learning & development of our employees was a beneficial decision. The value derived from the course is immense & their support team is always there to help our employees.",
+    company_logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/rel.png",
+    name: "Reliance"
+  }
 ];
 
-export const PRICING_PLANS: PricingPlan[] = [
-  {
-    id: "plan-starter",
-    name: "Starter",
-    priceMonthly: 49,
-    priceYearly: 39,
-    description: "Essential verification tools for growing education centers and coding bootcamps.",
-    features: [
-      "Up to 1,000 verifications/mo",
-      "Standard PDF templates",
-      "Email support",
-      "Basic reporting analytics",
-      "Public verification portal",
-    ],
-    isPopular: false,
-    ctaText: "Start 14-day free trial",
-  },
-  {
-    id: "plan-pro",
-    name: "Professional",
-    priceMonthly: 129,
-    priceYearly: 99,
-    description: "Advanced analytics, white-label branding, and dedicated webhooks for scaling platforms.",
-    features: [
-      "Up to 10,000 verifications/mo",
-      "Custom branding & domains",
-      "API & webhook access",
-      "Priority 24/7 support",
-      "Advanced engagement analytics",
-      "Bulk CSV issuance uploads",
-    ],
-    isPopular: true,
-    ctaText: "Upgrade to Professional",
-  },
-  {
-    id: "plan-enterprise",
-    name: "Enterprise",
-    priceMonthly: 499,
-    priceYearly: 399,
-    description: "Custom volume limits, dedicated database clusters, and custom SLA contracts for large institutions.",
-    features: [
-      "Unlimited verifications",
-      "Dedicated infrastructure option",
-      "Custom system integrations",
-      "Designated Account Manager",
-      "SLA: 99.99% uptime guarantee",
-      "Strict data isolation (on-prem/dedicated VPC)",
-    ],
-    isPopular: false,
-    ctaText: "Contact Enterprise Sales",
-  },
+export const DOMAIN_OPTIONS = [
+  { value: "product management", label: "Product Management" },
+  { value: "CFO", label: "CFO" },
+  { value: "data science", label: "Data Science" },
+  { value: "artificial intelligence", label: "Artificial Intelligence" },
+  { value: "Human Resource", label: "Human Resource" },
+  { value: "strategy & leadership", label: "Strategy & Leadership" },
+  { value: "General Management", label: "General Management" },
+  { value: "digital Transformation", label: "Digital Transformation" },
+  { value: "business management", label: "Business Management" },
+  { value: "finance", label: "Finance" },
+  { value: "project management", label: "Project Management" },
+  { value: "senior management", label: "Senior Management" },
+  { value: "cybersecurity", label: "Cybersecurity" }
 ];
 
-export const FAQ_ITEMS: FaqItem[] = [
-  {
-    id: "faq-1",
-    question: "How does the cryptographic credential verification work?",
-    answer: "Every credential issued on Accredian receives a unique cryptographic hash, signed by the issuer. When validated, the system checks the signature against the issuer's public key, guaranteeing that the record has not been altered or forged since its issuance.",
-  },
-  {
-    id: "faq-2",
-    question: "Can we integrate Accredian with our existing LMS?",
-    answer: "Yes, absolutely! Accredian has plug-and-play integrations with popular learning management systems like Canvas, Moodle, and Blackboard, as well as a comprehensive REST API to integrate with custom in-house systems.",
-  },
-  {
-    id: "faq-3",
-    question: "What compliance standards does Accredian meet?",
-    answer: "We take compliance very seriously. Accredian is fully GDPR compliant, SOC 2 Type II certified (in progress), and follows W3C Verifiable Credentials standards, ensuring international interoperability and high-level privacy controls.",
-  },
-  {
-    id: "faq-4",
-    question: "Is there a limit to how many credentials we can issue?",
-    answer: "Our Starter and Professional plans have soft monthly validation quotas, while our Enterprise plan offers customizable limits. We scale effortlessly from small academies to national university networks.",
-  },
-  {
-    id: "faq-5",
-    question: "Do you offer a free trial?",
-    answer: "Yes, we offer a 14-day fully featured free trial on our Starter and Professional plans. You do not need a credit card to sign up and test the API integration.",
-  },
+export const DELIVERY_OPTIONS = [
+  { value: "Online", label: "Online" },
+  { value: "Offline", label: "Offline" }
 ];

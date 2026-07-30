@@ -1,4 +1,3 @@
-
 export interface NavLink {
   label: string;
   href: string;
@@ -8,44 +7,56 @@ export interface Feature {
   id: string;
   title: string;
   description: string;
-  iconName: string; // Lucide icon identifier
+  iconName: string;
 }
 
 export interface Stat {
+  id: number;
+  title: string;
+  text: string;
+}
+
+export interface ClientLogo {
   id: string;
-  value: string;
-  label: string;
+  logo: string;
+}
+
+export interface DomainItem {
+  title: string;
+  description: string;
+  iconName: string;
+}
+
+export interface CourseSegment {
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface TargetAudience {
+  title: string;
+  description: string;
+  iconName: string;
+}
+
+export interface HowItWorksStep {
+  title: string;
+  description: string;
+  iconName: string;
+}
+
+export interface FAQItem {
+  title: string;
+  content: string[];
+}
+
+export interface FAQGroup {
+  title: string;
+  content: FAQItem[];
 }
 
 export interface Testimonial {
-  id: string;
-  name: string;
-  role: string;
-  company: string;
-  avatarUrl: string;
   review: string;
-  rating: number;
-}
-
-export interface PricingPlan {
-  id: string;
+  company_logo: string;
   name: string;
-  priceMonthly: number;
-  priceYearly: number;
-  description: string;
-  features: string[];
-  isPopular: boolean;
-  ctaText: string;
-}
-
-export interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
-export interface CompanyLogo {
-  id: string;
-  name: string;
-  logoSvg: string; // inline SVG or path
 }

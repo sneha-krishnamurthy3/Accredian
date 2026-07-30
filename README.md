@@ -1,37 +1,39 @@
-# Accredian - Premium Digital Credentialing & Verification Landing Page
+# Accredian Enterprise - Workforce Upskilling & Corporate Training Landing Page
 
-Accredian is a complete, production-ready SaaS landing page built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It showcases a premium credential issuance and cryptographic validation platform for universities, bootcamps, and modern enterprises.
+Accredian Enterprise is a high-fidelity recreation of the official Accredian corporate training platform (`https://enterprise.accredian.com/`), built using **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**.
 
-The design is heavily inspired by high-end startup platforms (e.g., Stripe, Linear, Vercel, Apple) featuring minimal design, responsive layouts, glassmorphic accents, and fluid 60fps micro-interactions.
+The landing page features custom-styled layouts, responsive grid structures, dynamic infinite scrolling logo marquees, and a functional popup "Enquire Now" lead capture form validated on both the client and server sides.
 
 ---
 
 ## 🚀 Key Features
 
-1. **Sticky Glassmorphic Navigation**: Adapts on scroll, tracks active scroll sections, and features a slide-out mobile menu.
-2. **Interactive Hero Section**: High-impact typography, quick stats, primary/secondary action triggers, and interactive floating verification preview cards.
-3. **Logos Marquee**: Grayscale showcase of leading tech companies and academic partners.
-4. **Interactive Features Grid**: 6 hover-lift capability cards with custom SVG capsules.
-5. **Why Choose Us Split Section**: Stat counters and benefits highlights paired with a static cryptographic key status dashboard mockup.
-6. **Product Showcase & Console**: Tab-like features overview showing an Issuer Admin Console and Recipient Verification Portal with interactive weekly traffic curves.
-7. **Masonry Testimonials**: Grid of authenticated admissions and operations reviews.
-8. **Interactive Pricing Grid**: Toggle between monthly and yearly billing options with a spring-animated sliding pill. Highlights the Pro tier plan with subtle scaling highlights.
-9. **FAQ Accordion**: Smooth height transitions powered by Framer Motion. Accessible using ARIA states (`aria-expanded`, `role="region"`).
-10. **Interactive Contact Form**: Custom-styled input components with instant client-side validations, submission status states (loading spinners, successes, errors), and native Sonner toasts. Integrates directly with a Next.js API route.
-11. **Sleek Multi-column Footer**: Product/company shortcuts, newsletter form with instant validation, and custom inline SVG social shortcuts.
+1. **Sticky Adaptive Navigation**: Fixed header with scrolling state, smooth anchor scrolling to section IDs, active section indicators, and a collapsible mobile menu.
+2. **Interactive Hero Section**: Recreates the blue card structure featuring bullet highlights (Tailored Solutions, Industry Insights, Expert Guidance, Measurable Impact) and a modal-triggering CTA next to the official GCP illustration `corporate-big-hero-v4.webp`.
+3. **Track Record Statistics**: Section highlighting trained metrics (10K+ professionals, 200+ sessions, 5K+ active learners) framed in circular badges with adaptive divider border structures.
+4. **Infinite scrolling Logo Marquee**: Grayscale logo ticker showcasing proven partnerships (Bayer, Reliance, HCL, IBM, CRIF, ADP) with automatic looping and hover pause.
+5. **The Accredian Edge Strategic USP**: Renders the enterprise upskilling diagrams, swapping between desktop (`accredian-edge-usp-v3.svg`) and mobile (`accredian-edge-usp-mobile.svg`) SVGs.
+6. **Focus Hub Domain Expertise Grid**: Displays the 7 specialization hubs (Gen-AI, Leadership, Operations, Fintech, etc.) in a responsive grid layout with hover transforms and Lucide icons.
+7. **Custom-Fit Course Segmentation**: Displays the 4 custom-fit course scopes (Program, Industry, Topic, Level) using card grid layouts and GCP assets.
+8. **Who Should Join (Strategic Skill Enhancement)**: Blue panel layout displaying target audience categories (Tech, Non-tech, Emerging, Senior professionals) in a clean grid layout alongside `imagehuman.png`.
+9. **The CAT Framework**: Highlights learning excellence (Concept, Application, Tools) using the GCP diagram SVG (`catV2.svg`).
+10. **Results Delivery (How It Works)**: Render cards representing the 3-step delivery approach (Skill Gap Analysis, Customized Plan, Flexible Delivery) with circular numbers and vertical accent bars.
+11. **Tabbed FAQ Accordion**: Toggle drawer accordions categorized into tabs ("About the Course", "About the Delivery", and "Miscellaneous") with smooth grid-row transitions.
+12. **Partner Testimonials Slider**: Reusable slide-transition testimonials carousel showing reviews (Bayer, ADP, Reliance) with responsive slides (2 side-by-side on desktop, 1 on mobile) and dot indicator selectors.
+13. **Contact support CTA Banner**: Bottom blue gradient call-to-action banner ("Want to Learn More...").
+14. **Corporate Footer**: Dynamic footer featuring logo, inline SVG social links, L&D details, and an "Enquire Now" CTA button.
 
 ---
 
 ## 🏗️ Approach Taken
 
-This project was built from the ground up prioritizing scalability, visual premium quality, and production-ready architecture.
+This project was built from the ground up prioritizing modularity, clean code, responsive design, and production-ready architecture.
 
-- **Component-First Architecture**: Features are divided into atomic, reusable UI components (`Button.tsx`, `Input.tsx`, `Accordion.tsx`) isolated from page-specific sections. This keeps the layout dry and highly maintainable.
-- **Next.js App Router**: Utilized Next.js App Router and React Server Components (RSC) by default. Client components (defined with `"use client"`) are used only where interactive hooks or animations (Framer Motion) are required.
+- **Component-First Architecture**: Features are divided into atomic, reusable UI components (`EnquireModal.tsx`, `Button.tsx`) isolated from page-specific sections. This keeps the layout dry and highly maintainable.
+- **Next.js App Router**: Utilized Next.js App Router and React Server Components (RSC) by default. Client components (defined with `"use client"`) are used only where interactive hooks, state, or animations (Framer Motion) are required.
 - **Responsive-First Design**: Layouts are designed mobile-first, ensuring fluid adaptivity across all breakpoints (from small screens `320px` to large screens `1440px`).
-- **Cryptographic Theme Realism**: Avoided fake rolling logs or tickers. Instead, mockups are presented as believable, high-fidelity static dashboard elements featuring standard specs (FIPS, W3C standards).
-- **Zod-Validated API Integration**: The contact form communicates with a Next.js serverless route using a strict Zod schema definition to validate payloads on both client and server sides.
-- **Performant Micro-interactions**: Animations are configured with gentle, easing spring parameters rather than heavy layout shifts, preserving high scroll performance.
+- **GCP Assets Integration**: Avoided placeholder image placeholders. Instead, we extracted and integrated original SVG, WebP, and PNG assets hosted directly on Accredian's Google Cloud Storage, ensuring 100% visual realism.
+- **Zod-Validated API Integration**: The enquire form communicates with a Next.js serverless route using a strict Zod schema definition to validate payloads on both client and server sides.
 
 ---
 
@@ -52,37 +54,36 @@ This project was built from the ground up prioritizing scalability, visual premi
 ```text
 app/
 ├── api/
-│   └── contact/
-│       └── route.ts         # Zod validated contact submission endpoint
-├── layout.tsx               # Root layout, Metadata SEO API, Inter font, Toaster
+│   └── enquire/
+│       └── route.ts         # Zod validated contact enquiry endpoint
+├── layout.tsx               # Root layout, Metadata SEO, Toaster
 ├── page.tsx                 # Main landing page coordinator (RSC)
-├── globals.css              # Custom Tailwind v4 theme configurations
+├── globals.css              # Custom Tailwind v4 theme configurations & animations
 components/
-├── ui/                      # Reusable atomic UI elements
+├── ui/                      # Reusable UI elements
 │   ├── Button.tsx           # Multi-variant animated button
 │   ├── Input.tsx            # Custom input and textarea wrappers
-│   ├── SectionTitle.tsx     # Reusable section header text
-│   ├── Accordion.tsx        # Framer motion powered accordion
-│   ├── FeatureCard.tsx      # Hover-lift icon card
-│   ├── TestimonialCard.tsx  # Grid/rating review card
-│   └── PricingCard.tsx      # Plan details and action CTA
+│   └── EnquireModal.tsx     # Double-pane modal form with GCP assets
 ├── layout/                  # Shell components
 │   ├── Navbar.tsx           # Sticky nav with active section state & mobile drawer
-│   └── Footer.tsx           # Multi-column footer and newsletter submit
+│   └── Footer.tsx           # Footer and social shortcuts
 ├── sections/                # Full screen page blocks
 │   ├── Hero.tsx
+│   ├── Stats.tsx
 │   ├── TrustedBy.tsx
-│   ├── Features.tsx
+│   ├── AccredianEdge.tsx
+│   ├── DomainExpertise.tsx
+│   ├── CourseSegmentation.tsx
 │   ├── WhyChooseUs.tsx
-│   ├── ProductShowcase.tsx
-│   ├── Testimonials.tsx
-│   ├── Pricing.tsx
+│   ├── CATFramework.tsx
+│   ├── HowItWorks.tsx
 │   ├── FAQ.tsx
-│   └── ContactForm.tsx
+│   ├── Testimonials.tsx
+│   └── ContactCTA.tsx
 hooks/
-└── useContactForm.ts        # Form state, validation, and API fetch hook
+└── useEnquireForm.ts        # Enquire form validation and fetch state hook
 lib/
-├── constants.ts             # Copy text, logos, pricing plans (Single source of truth)
+├── constants.ts             # Copy text, logos, FAQs (Single source of truth)
 └── utils.ts                 # Class merger utility (clsx + tailwind-merge)
 types/
 └── index.ts                 # TypeScript type interfaces
@@ -127,8 +128,8 @@ types/
 
 ## 📡 API Documentation
 
-### POST `/api/contact`
-Receives contact inquiries, validates the schema using Zod, and registers them in-memory.
+### POST `/api/enquire`
+Receives corporate upskilling enquiries, validates the schema using Zod, and registers them in-memory.
 
 #### Request Headers:
 - `Content-Type: application/json`
@@ -137,9 +138,13 @@ Receives contact inquiries, validates the schema using Zod, and registers them i
 ```json
 {
   "name": "Jane Madison",
-  "email": "jane@stanford.edu",
-  "phone": "+1 (555) 019-2834",
-  "message": "We would like to request an API integration key for Stanford."
+  "email": "jane@reliance.com",
+  "phone": "+91 9999988888",
+  "company": "Reliance Industries",
+  "courseDomain": "data science",
+  "candidates": "25",
+  "mode": "Online",
+  "location": "Mumbai, India"
 }
 ```
 
@@ -147,7 +152,7 @@ Receives contact inquiries, validates the schema using Zod, and registers them i
 ```json
 {
   "success": true,
-  "message": "Thank you Jane Madison, your inquiry has been submitted successfully!"
+  "message": "Thank you Jane Madison! Your corporate enquiry has been successfully logged. Our L&D Advisor will contact you shortly."
 }
 ```
 
@@ -158,7 +163,7 @@ Receives contact inquiries, validates the schema using Zod, and registers them i
   "message": "Validation failed.",
   "errors": {
     "email": "Please enter a valid email address.",
-    "message": "Message must be at least 10 characters."
+    "candidates": "Number of candidates must be greater than 0."
   }
 }
 ```
@@ -167,48 +172,25 @@ Receives contact inquiries, validates the schema using Zod, and registers them i
 
 ## 🤖 AI Usage and Refinement
 
-This project was built leveraging collaborative AI development workflows to ensure a high-fidelity result.
+This project was built leveraging collaborative AI development workflows using Antigravity.
 
 ### Where AI Helped
-- **Architecture Planning**: Suggested a modular folder separation isolating page sections from atomic UI widgets.
-- **Scaffolding**: Created templates for base inputs and buttons extending Framer Motion properties.
-- **API Boilerplate**: Drafted the basic TypeScript POST API handler structure.
-- **Accessibility Suggestions**: Provided checklists for incorporating ARIA expanded tags and error description IDs.
-- **Micro-Interactions**: Recommended spring transitions for sliding pricing pills and accordion toggles.
-- **Code Review**: Audited the project structure to identify dead imports and suggest file optimizations.
+- **Page Extraction**: Fetched the live client bundle structure and parsed the exact stats, testimonials arrays, FAQs list, and asset paths of the original `enterprise.accredian.com` page.
+- **Form Schema & Scaffolding**: Generated Zod schemas and validation rules mapping the 8 inputs of the modal form.
+- **Slider Carousel**: Designed the structural slide set pagination calculations for the custom testimonials carousel.
+- **Type Checking Audits**: Identified type-checking errors in Zod enums and native `<img>` tags during production build checks.
 
 ### Manual Improvements
-- **UI/UX Craftsmanship**: Polished margins, paddings, and font tracking using a strict 8-point design grid.
-- **Custom Assets**: Replaced name text placeholders in the Trusted By bar with clean inline SVG logotypes.
-- **Responsive Adaptivity**: Fine-tuned layouts across mobile viewpoints down to `320px`.
-- **TypeScript Integration**: Enforced strong interfaces on button events and Zod errors to clear type-checking warnings.
-- **Accessibility Hardening**: Bound input labels and aria-describedby errors to ensure strict screen-reader navigation.
-- **Production Verification**: Started local development servers to test Zod validation payloads.
-
----
-
-## ✅ Quality Checks
-
-The application is thoroughly verified to meet production-ready standards:
-- **Zero TypeScript Errors**: All component typings compile successfully without `any` overrides.
-- **Zero ESLint Warnings**: Project runs cleanly, outputting no unused variables or code quality warnings.
-- **Build Checked**: `npm run build` succeeds completely, bundling pages statically.
-- **Lint Checked**: `npm run lint` finishes with no issues.
-- **Responsive Checked**: Mobile responsiveness verified on breakpoints `320px`, `375px`, `425px`, `768px`, `1024px`, and `1440px`.
-
----
-
-## 🌐 Deployment
-
-The application is designed for instant deployment on Vercel. All image configuration patterns (`images.remotePatterns` for Unsplash avatar images) are preset in `next.config.ts` to ensure seamless compilation.
-
-- **Vercel Staging URL**: `[Insert Live Vercel Link Here]`
+- **CSS Marquee Fine-Tuning**: Polished horizontal padding and translate distances in the infinite marquee to prevent layout flickering.
+- **Icon Binding Mapping**: Mapped GCP variable variables to modern Lucide React icons.
+- **SVG Social Icons**: Replaced external dependency icon imports in `Footer.tsx` with clean inline vector SVGs to prevent type errors.
+- **Form State Hook**: Refactored input change handlers to clear specific validation errors in real-time as the user typing events fire.
 
 ---
 
 ## 🔮 Future Improvements
 
-1. **Analytics Integration**: Add Vercel Analytics or Google Tag Manager to track landing conversion rates and button clicks.
-2. **Database Persistence**: Connect the `/api/contact` route to a serverless Postgres database (using Supabase or Prisma ORM).
-3. **Email Notification System**: Implement automated email delivery via Resend or AWS SES to notify administrators upon receiving contact requests.
-4. **Admin Lead Dashboard**: Design a secure admin dashboard `/admin` to review, export, or qualify submitted leads.
+1. **Database Persistence**: Connect the `/api/enquire` route to a serverless Postgres database (using Supabase or Prisma ORM).
+2. **Email Alerts**: Integrate Resend or AWS SES to send instant emails to the Accredian sales team when a lead is captured.
+3. **Advanced Country Code Selector**: Implement an interactive dropdown containing country code lists and phone dial-codes mapping dial length constraints.
+4. **CRM Onboarding**: Sync submitted leads directly to CRM databases (HubSpot, Salesforce) using webhooks.

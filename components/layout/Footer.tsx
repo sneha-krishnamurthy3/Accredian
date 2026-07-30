@@ -1,195 +1,171 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { BRAND_NAME, NAV_LINKS } from "@/lib/constants";
+import React from "react";
 
-export const Footer: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+interface FooterProps {
+  onEnquireClick: () => void;
+}
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) {
-      setStatus("error");
-      setErrorMessage("Please enter your email.");
-      return;
-    }
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setStatus("error");
-      setErrorMessage("Please enter a valid email address.");
-      return;
-    }
-
-    setStatus("loading");
-    // Mock API call
-    setTimeout(() => {
-      setStatus("success");
-      setEmail("");
-    }, 1200);
-  };
+export const Footer: React.FC<FooterProps> = ({ onEnquireClick }) => {
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-50 border-t border-slate-100 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
-          {/* Brand Profile */}
-          <div className="md:col-span-4 space-y-5">
-            <a href="#home" className="flex items-center gap-2 group w-fit">
-              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-black text-lg shadow-sm">
-                A
-              </div>
-              <span className="text-lg font-bold tracking-tight text-slate-905">
-                {BRAND_NAME}
-              </span>
-            </a>
-            <p className="text-sm text-slate-600 leading-relaxed max-w-sm">
-              The modern credentialing platform for universities, enterprises, and online bootcamps. Secure, instant verification at scale.
-            </p>
-            {/* Social icons */}
-            <div className="flex items-center gap-4 pt-2">
+    <footer className="mt-12 bg-[#1d1d1d] sm:bg-white sm:mt-24 py-10 border-t border-slate-200">
+      <div className="max-w-[85rem] w-full px-6 sm:px-8 mx-auto">
+        {/* Top Section - Brand, Socials & Enquire Button */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700 sm:border-slate-200 pb-6 gap-6">
+          <div>
+            {/* Logo */}
+            <img
+              src="https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/logo.webp"
+              alt="Accredian Logo"
+              className="hidden sm:block w-36 h-auto object-contain"
+            />
+            <img
+              src="https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/logo/accredainnew.webp"
+              alt="Accredian Logo"
+              className="block sm:hidden w-36 h-auto object-contain"
+            />
+
+            {/* Social Icons */}
+            <div className="flex gap-4 mt-4">
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-650 hover:border-indigo-150 hover:shadow-sm transition-all duration-200"
+                href="https://facebook.com/accredianlearn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white sm:text-slate-600 hover:text-universal transition-colors"
+                aria-label="Facebook"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/accredianedu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white sm:text-slate-600 hover:text-universal transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8h2.8v-4.87c0-.26.05-.52.12-.7a1.09 1.09 0 0 1 1-.72c.69 0 .92.52.92 1.3v5h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.5H5v8h3z" />
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com/accredianedu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white sm:text-slate-600 hover:text-universal transition-colors"
                 aria-label="Twitter"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-650 hover:border-indigo-150 hover:shadow-sm transition-all duration-200"
-                aria-label="GitHub"
+                href="https://instagram.com/accredianedu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white sm:text-slate-600 hover:text-universal transition-colors"
+                aria-label="Instagram"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-650 hover:border-indigo-150 hover:shadow-sm transition-all duration-200"
-                aria-label="LinkedIn"
+                href="https://youtube.com/@accredian"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white sm:text-slate-600 hover:text-universal transition-colors"
+                aria-label="YouTube"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </a>
             </div>
           </div>
 
-          {/* Useful links */}
-          <div className="md:col-span-4 grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                Product
-              </h4>
-              <ul className="space-y-2.5">
-                {NAV_LINKS.slice(0, 3).map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-slate-655 text-slate-600 hover:text-indigo-650 transition-colors font-medium"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-slate-600 hover:text-indigo-650 transition-colors font-medium">
-                    Integrations
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                Company
-              </h4>
-              <ul className="space-y-2.5">
-                {NAV_LINKS.slice(3).map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-slate-600 hover:text-indigo-650 transition-colors font-medium"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-slate-600 hover:text-indigo-650 transition-colors font-medium">
-                    Privacy Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="md:col-span-4 space-y-4">
-            <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-              Subscribe to our newsletter
-            </h4>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Get product updates, security briefs, and digital certification best practices.
+          {/* Enquire CTA */}
+          <div className="flex flex-col items-center md:items-end w-full md:w-auto">
+            <button
+              onClick={onEnquireClick}
+              className="w-full md:w-auto px-6 py-2.5 bg-universal hover:bg-universal-hover text-white rounded-lg font-semibold text-sm transition shadow-md cursor-pointer select-none text-center"
+            >
+              Enquire Now
+            </button>
+            <p className="text-white sm:text-slate-700 text-xs mt-2 select-none">
+              Speak with our Advisor
             </p>
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (status === "error") setStatus("idle");
-                  }}
-                  placeholder="name@company.com"
-                  className="w-full pl-4 pr-12 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-500/5 transition-all text-sm shadow-[0_1px_2px_rgba(0,0,0,0.01)]"
-                  aria-label="Email address for newsletter"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="absolute right-1 top-1 bottom-1 px-3.5 rounded-lg bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50 cursor-pointer"
-                  aria-label="Subscribe"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-
-              {status === "error" && (
-                <p className="text-xs font-semibold text-red-500">{errorMessage}</p>
-              )}
-              {status === "success" && (
-                <p className="text-xs font-semibold text-emerald-600">
-                  Thank you! You&apos;ve been subscribed.
-                </p>
-              )}
-            </form>
           </div>
         </div>
 
-        <hr className="my-12 md:my-16 border-slate-200/50" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-500 font-medium">
-            &copy; 2026 {BRAND_NAME} Inc. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#" onClick={(e) => e.preventDefault()} className="text-xs text-slate-500 hover:text-indigo-650 transition-colors font-medium">
-              Terms of Service
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} className="text-xs text-slate-500 hover:text-indigo-650 transition-colors font-medium">
-              Privacy Policy
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} className="text-xs text-slate-500 hover:text-indigo-650 transition-colors font-medium">
-              Cookies Settings
-            </a>
+        {/* Mid Section - Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 pb-6 gap-8 mt-6 border-b border-gray-700 sm:border-slate-200">
+          {/* Accredian Links Column */}
+          <div className="text-left space-y-3">
+            <h3 className="font-semibold text-base sm:text-lg text-white sm:text-slate-900 font-circular select-none">
+              Accredian
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#home"
+                  className="text-slate-400 sm:text-slate-600 hover:text-universal text-sm transition-colors font-medium"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#home"
+                  className="text-slate-400 sm:text-slate-600 hover:text-universal text-sm transition-colors font-medium"
+                >
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#accredianEdge"
+                  className="text-slate-400 sm:text-slate-600 hover:text-universal text-sm transition-colors font-medium"
+                >
+                  Why Accredian
+                </a>
+              </li>
+            </ul>
           </div>
+
+          {/* Contact Us Column */}
+          <div className="text-left space-y-3">
+            <h3 className="font-semibold text-base sm:text-lg text-white sm:text-slate-900 font-circular select-none">
+              Contact Us
+            </h3>
+            <div className="space-y-2 text-sm text-slate-450 text-slate-400 sm:text-slate-600 leading-relaxed">
+              <p>
+                Email us:{" "}
+                <a
+                  href="mailto:enterprise@accredian.com"
+                  className="text-universal hover:underline font-medium"
+                >
+                  enterprise@accredian.com
+                </a>
+              </p>
+              <p>
+                Office Address: 4th Floor, 250, Phase IV, Udyog Vihar, Sector 18,
+                Gurugram, Haryana
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section - Copyright */}
+        <div className="pt-6 text-center">
+          <p className="text-slate-500 sm:text-slate-600 text-xs font-medium font-sans">
+            &copy; {currentYear} Accredian A Brand of FullStack Education Pvt Ltd. All Rights Reserved
+          </p>
         </div>
       </div>
     </footer>
