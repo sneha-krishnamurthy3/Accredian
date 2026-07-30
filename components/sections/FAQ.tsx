@@ -7,7 +7,7 @@ import { FAQ_ITEMS } from "@/lib/constants";
 
 export const FAQ: React.FC = () => {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-slate-50/50 scroll-mt-12">
+    <section id="faq" className="py-24 md:py-32 bg-slate-50/50 scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="FAQ"

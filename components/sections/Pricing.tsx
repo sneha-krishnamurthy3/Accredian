@@ -10,7 +10,7 @@ export const Pricing: React.FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
 
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-white scroll-mt-12">
+    <section id="pricing" className="py-24 md:py-32 bg-white scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Pricing"

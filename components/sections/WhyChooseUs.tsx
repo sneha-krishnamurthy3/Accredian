@@ -6,7 +6,7 @@ import { STATS } from "@/lib/constants";
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section id="about" className="py-20 md:py-28 bg-slate-50/50 scroll-mt-12">
+    <section id="about" className="py-24 md:py-32 bg-slate-50/50 scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

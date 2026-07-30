@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center pt-24 pb-16 overflow-hidden bg-slate-50/50"
+      className="relative min-h-[90vh] flex items-center pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-slate-50/50"
     >
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight"
+              className="text-5xl md:text-6xl xl:text-[4.25rem] font-extrabold tracking-[-0.03em] leading-[1.05] text-slate-900"
             >
               Verify Academic and Professional achievements{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 tracking-normal"
             >
               Stop manual degree verifications. Issuance takes under a minute, validation is done in a millisecond. Secure, cryptographically certified credentials.
             </motion.p>
@@ -106,6 +106,8 @@ export const Hero: React.FC = () => {
 
           {/* Graphics Showcase & Floating Cards */}
           <div className="lg:col-span-5 relative mt-12 lg:mt-0 flex justify-center">
+            {/* Ambient Radial Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-gradient-to-tr from-indigo-500/10 via-violet-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

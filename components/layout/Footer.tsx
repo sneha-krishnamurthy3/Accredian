@@ -32,15 +32,15 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-slate-50 border-t border-slate-100 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand Profile */}
-          <div className="md:col-span-4 space-y-4">
-            <a href="#home" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center text-white font-black text-lg shadow-sm">
+          <div className="md:col-span-4 space-y-5">
+            <a href="#home" className="flex items-center gap-2 group w-fit">
+              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-black text-lg shadow-sm">
                 A
               </div>
-              <span className="text-lg font-bold tracking-tight text-slate-900">
+              <span className="text-lg font-bold tracking-tight text-slate-905">
                 {BRAND_NAME}
               </span>
             </a>
@@ -51,7 +51,8 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-4 pt-2">
               <a
                 href="#"
-                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:border-indigo-100 transition-colors"
+                onClick={(e) => e.preventDefault()}
+                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-650 hover:border-indigo-150 hover:shadow-sm transition-all duration-200"
                 aria-label="Twitter"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -60,7 +61,8 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:border-indigo-100 transition-colors"
+                onClick={(e) => e.preventDefault()}
+                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-650 hover:border-indigo-150 hover:shadow-sm transition-all duration-200"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -69,7 +71,8 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:border-indigo-100 transition-colors"
+                onClick={(e) => e.preventDefault()}
+                className="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-indigo-650 hover:border-indigo-150 hover:shadow-sm transition-all duration-200"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,7 +85,7 @@ export const Footer: React.FC = () => {
           {/* Useful links */}
           <div className="md:col-span-4 grid grid-cols-2 gap-4">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                 Product
               </h4>
               <ul className="space-y-2.5">
@@ -90,21 +93,21 @@ export const Footer: React.FC = () => {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                      className="text-sm text-slate-655 text-slate-600 hover:text-indigo-650 transition-colors font-medium"
                     >
                       {link.label}
                     </a>
                   </li>
                 ))}
                 <li>
-                  <a href="#" className="text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-slate-600 hover:text-indigo-650 transition-colors font-medium">
                     Integrations
                   </a>
                 </li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                 Company
               </h4>
               <ul className="space-y-2.5">
@@ -112,14 +115,14 @@ export const Footer: React.FC = () => {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                      className="text-sm text-slate-600 hover:text-indigo-650 transition-colors font-medium"
                     >
                       {link.label}
                     </a>
                   </li>
                 ))}
                 <li>
-                  <a href="#" className="text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-slate-600 hover:text-indigo-650 transition-colors font-medium">
                     Privacy Policy
                   </a>
                 </li>
@@ -129,7 +132,7 @@ export const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
               Subscribe to our newsletter
             </h4>
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -145,13 +148,13 @@ export const Footer: React.FC = () => {
                     if (status === "error") setStatus("idle");
                   }}
                   placeholder="name@company.com"
-                  className="w-full pl-4 pr-12 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/10 transition-all text-sm shadow-sm"
+                  className="w-full pl-4 pr-12 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-500/5 transition-all text-sm shadow-[0_1px_2px_rgba(0,0,0,0.01)]"
                   aria-label="Email address for newsletter"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="absolute right-1.5 top-1.5 bottom-1.5 px-3 rounded-lg bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50 cursor-pointer"
+                  className="absolute right-1 top-1 bottom-1 px-3.5 rounded-lg bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50 cursor-pointer"
                   aria-label="Subscribe"
                 >
                   <ArrowRight className="w-4 h-4" />
@@ -159,10 +162,10 @@ export const Footer: React.FC = () => {
               </div>
 
               {status === "error" && (
-                <p className="text-xs font-medium text-red-500">{errorMessage}</p>
+                <p className="text-xs font-semibold text-red-500">{errorMessage}</p>
               )}
               {status === "success" && (
-                <p className="text-xs font-medium text-emerald-600">
+                <p className="text-xs font-semibold text-emerald-600">
                   Thank you! You&apos;ve been subscribed.
                 </p>
               )}
@@ -170,20 +173,20 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <hr className="my-10 md:my-12 border-slate-200/60" />
+        <hr className="my-12 md:my-16 border-slate-200/50" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-600">
+          <p className="text-xs text-slate-500 font-medium">
             &copy; 2026 {BRAND_NAME} Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-slate-600 hover:text-indigo-600 transition-colors">
+            <a href="#" onClick={(e) => e.preventDefault()} className="text-xs text-slate-500 hover:text-indigo-650 transition-colors font-medium">
               Terms of Service
             </a>
-            <a href="#" className="text-xs text-slate-600 hover:text-indigo-600 transition-colors">
+            <a href="#" onClick={(e) => e.preventDefault()} className="text-xs text-slate-500 hover:text-indigo-650 transition-colors font-medium">
               Privacy Policy
             </a>
-            <a href="#" className="text-xs text-slate-600 hover:text-indigo-600 transition-colors">
+            <a href="#" onClick={(e) => e.preventDefault()} className="text-xs text-slate-500 hover:text-indigo-650 transition-colors font-medium">
               Cookies Settings
             </a>
           </div>

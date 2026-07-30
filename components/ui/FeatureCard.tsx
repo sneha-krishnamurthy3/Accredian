@@ -25,25 +25,26 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 
   return (
     <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className={cn(
-        "group relative p-6 md:p-8 rounded-2xl border border-slate-100 bg-white hover:border-indigo-100/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 text-left overflow-hidden",
+        "group relative p-8 md:p-10 rounded-3xl border border-slate-100/80 bg-white/60 hover:bg-white hover:border-slate-250/50 hover:shadow-[0_4px_12px_rgba(0,0,0,0.03),0_20px_40px_rgba(79,70,229,0.06)] transition-all duration-300 text-left overflow-hidden",
         className
       )}
     >
       {/* Radial Hover Glow Backdrop */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(79,70,229,0.05),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(79,70,229,0.04),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
       {/* Icon Capsule */}
-      <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100/50 flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-gradient-to-tr group-hover:from-indigo-600 group-hover:to-violet-600 group-hover:text-white group-hover:border-transparent transition-all duration-300">
-        <Icon className="w-6 h-6" />
+      <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100/50 flex items-center justify-center text-indigo-650 mb-8 group-hover:bg-gradient-to-tr group-hover:from-indigo-600 group-hover:to-violet-600 group-hover:text-white group-hover:border-transparent transition-all duration-350">
+        <Icon className="w-5.5 h-5.5" />
       </div>
 
       {/* Text Content */}
-      <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+      <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-indigo-600 transition-colors">
         {title}
       </h3>
-      <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal">
+      <p className="text-sm md:text-[0.93rem] text-slate-650 leading-relaxed font-normal">
         {description}
       </p>
     </motion.div>

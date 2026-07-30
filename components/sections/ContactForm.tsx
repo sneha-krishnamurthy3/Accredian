@@ -16,7 +16,7 @@ export const ContactForm: React.FC = () => {
   });
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-white scroll-mt-12">
+    <section id="contact" className="py-24 md:py-32 bg-white scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Contact Us"
@@ -73,7 +73,7 @@ export const ContactForm: React.FC = () => {
 
           {/* Right Column: Interactive Form */}
           <div className="lg:col-span-7">
-            <div className="bg-slate-50/50 border border-slate-100 p-6 md:p-8 rounded-3xl relative overflow-hidden shadow-sm">
+            <div className="bg-slate-50/30 border border-slate-200/50 p-8 md:p-10 rounded-[24px] relative overflow-hidden shadow-sm">
               <AnimatePresence mode="wait">
                 {success ? (
                   <motion.div
