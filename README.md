@@ -9,7 +9,7 @@
 
 | Resource | Link |
 |---|---|
-| 🌐 **Live Deployed Link (Vercel)** | _(Add after Vercel deployment)_ |
+| 🌐 **Live Deployed Link (Vercel)** | _(https://accredian-f1l2.vercel.app/)_ |
 | 💻 **GitHub Repository** | [github.com/sneha-krishnamurthy3/Accredian](https://github.com/sneha-krishnamurthy3/Accredian) |
 
 ---
